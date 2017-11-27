@@ -368,30 +368,5 @@ function bbtn_header_bar_init() {
   ///////////////////////////
  // End of TNN Header Bar //
 ///////////////////////////
-/************ Custom Login Box **********/
 
-function bblm_custom_login() {
-
-	$path = dirname(plugin_basename(__FILE__));
-	if ( $path == '.' ) {
-		$path = '';
-		$csslnk = trailingslashit( plugins_url( $path ) ) . 'bbtn_child_login.css';
-	} else {
-		$csslnk = trailingslashit( plugins_url( '', __FILE__) ) . 'bbtn_child_login.css';
-	}
-	echo '<link rel="stylesheet" type="text/css" href="'.$csslnk.'" />';
-}
-
-add_action('login_head', 'bblm_custom_login');
-
-function change_wp_login_url() {
-    echo  get_option('siteurl');
-}
-
-add_filter('login_headerurl', 'change_wp_login_url');
-
-
-function change_wp_login_title() {
-    echo  'Powered by ' . get_option('blogname');
-}
 ?>
