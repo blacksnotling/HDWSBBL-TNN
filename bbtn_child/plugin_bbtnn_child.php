@@ -1,28 +1,18 @@
 <?php
 /*
-Plugin Name: Blood Bowl Team News Network Child Plugin
-Description: Provides all the functions and options required to run the child sites. At present it provides an options page to map the Team ID
-Author: Andy M
-Version: 1.1.1
-Author URI: http://www.hdwsbbl.co.uk
+* Plugin Name: Blood Bowl Team News Network Child Plugin
 
-*	Filename: plugin_bbtnn_child.php
+* Plugin URI: https://github.com/blacksnotling/HDWSBBL-TNN
+* Description: Provides all the functions and options required to run the child sites. At present it provides an options page to map the Team ID
+* Version: 1.1.1 - 20171127
+* Author: Blacksnotling
+* Author URI: https://github.com/blacksnotling
+* Requires at least: 2.0
+* Tested up to: 4.9
+*
+* Text Domain: hdwsbbltnn
 */
-/* -- Change History --
-20100816 - 0.1b - Intital creation of file - completed the options page
-20100817 - 0.2b - Added the Team Identity widget
-20100816 - 0.1 - Added the Recent matches Widget (tracker item [284])
-20100901 - 0.2 - Add the TNN Toolbar function (tracker item [312])
-20100906 - 0.3 - refactored the code to make it neater (tracker [325]) and updated the wording on team identity widget (tracker [324])
-		 - 0.4 - Added a "HDWSBBL Championships" Widget
-		 - 0.5 - Added a team sponsor widget
-20100907 - 0.6 - Custom Login screen for all blogs!
-20100909 - 0.7 - restored the admin menu [338]. a missing closing comment was missing!
-20100913 - 1.0 - bump to V1.0 for go-live
-20100917 - 1.0.1 - modified the class names of the widgets so I can style them!
-20100918 - 1.1 - Added the Upcoming Matches (Fixtures Widget (Tracker item [308])
-		 - 1.1.1 - Added the teams status to the team identity widget (tracker item [339])
-*/
+
 //////////////////////////////////////
  // Options page - Blog2Team mapping //
 //////////////////////////////////////
@@ -100,70 +90,6 @@ function bbtnn_child_options_validate($input) {
   /////////////
  // Widgets //
 /////////////
-// http://codex.wordpress.org/Widgets_API
-// http://justintadlock.com/archives/2009/05/26/the-complete-guide-to-creating-widgets-in-wordpress-28
-/**
- * bbtnnn_TeamIdentity Class
- */
-//class bbtnnn_teamidentity extends WP_Widget {
-    /** constructor */
-//    function bbtnnn_teamidentity() {
-//		$widget_ops = array( 'classname' => 'team_identity', 'description' => 'Displays the name of your team and provides a link to their page on the main HDWSBBL site..' );
-		/* Widget control settings. */
-/*		$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'bbtnn_teamidentity' );
-		parent::WP_Widget( 'bbtnn_teamidentity', 'HDWSBBL - Team Identity', $widget_ops, $control_ops );
-	}*/
-
-    /** @see WP_Widget::widget */
-/*    function widget($args, $instance) {
-    	global $wpdb;
-        extract( $args );
-        $title = apply_filters('widget_title', $instance['title']);*/
-        ?>
-		<?php
-	/*	$options = get_option('bbtnn_child_options');
-		$identsql = "SELECT T.t_name AS teamname, T.t_guid AS turl, T.t_active FROM ".$options['bb_tbl_pre']."team T WHERE T.t_id = ".$options['t_id'];
-		if ($ident = $wpdb->get_row($identsql)) {
-
-			echo $before_widget;
-
-			$tname = $ident->teamname;
-			$link = $ident->turl;
-			$tstatus = $ident->t_active;
-
-			print("<p>This is the news site for <strong>".$tname."</strong>, ");
-			if ($ident->t_active) {
-				print("an active team in ");
-			}
-			else {
-				print("a former team of ");
-			}
-			print("the HDWSBBL. You can find more details on <a href=\"".$link."\" title=\"Visit the page on ".$tname." on the official HDWSBBL site\" class=\"external\">".$tname."</a> on the HDWSBBL website.</p>");
-			echo $after_widget;
-		}
-	}*/
-
-    /** @see WP_Widget::update */
-/*    function update($new_instance, $old_instance) {
-	$instance = $old_instance;
-	$instance['title'] = strip_tags($new_instance['title']);
-        return $instance;
-    }
-*/
-    /** @see WP_Widget::form */
-//    function form($instance) {
-        //I have to fudge this one!
-//        $title = "Team Identity"
-        ?>
-            <p><?php // _e($title); ?></p>
-        <?php
-//    }
-
-} // class bbtnn_TeamIdentity
-
-// register FooWidget widget
-//add_action('widgets_init', create_function('', 'return register_widget("bbtnnn_teamidentity");'));
-
 
 /**
  * bbtnnn_RecentMatches Class
